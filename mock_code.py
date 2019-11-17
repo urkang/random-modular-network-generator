@@ -30,9 +30,9 @@ modfunction = sg.poisson_sequence
 
 # generate the graph! 
 
-print "Generating a simple poisson random modular graph with modularity(Q)= " + str(Q)
-print "Graph has " + str(N) + " nodes, " +str(m)+ " modules, and a network mean degree of " + str(d)
-print "Generating graph....." 
+print ("Generating a simple poisson random modular graph with modularity(Q)= " + str(Q))
+print ("Graph has " + str(N) + " nodes, " +str(m)+ " modules, and a network mean degree of " + str(d))
+print ("Generating graph.....")
 G = rmg.generate_modular_networks(N, sfunction, modfunction, Q, m, d)
 
 

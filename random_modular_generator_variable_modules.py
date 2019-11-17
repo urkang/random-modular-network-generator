@@ -756,7 +756,7 @@ if __name__ == "__main__":
     
     # specify the degree distribution of the graph. In it's current format the code can generate
     # four well known degree distribution found in biological networks - scalefree, geometric, poisson and regular distribution
-    degfunction = sg.poisson_sequence
+    degfunction = sg.regular_sequence
 
     # specify the distribution of module size. The distribution can be scalefree, geometric, poisson and regular distribution (or any aribtrary sequence)
     #in it's simplest form speicify module size tp be regular which implies that all modules are of equal size
