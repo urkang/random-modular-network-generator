@@ -11,10 +11,10 @@ import random_modular_generator_variable_modules as rmg
 import sequence_generator as sg
 
 # Enter the network size(N), average network degree (d), total modules in the network (m), and modularity (Q)
-N=500
-d=6
-m=10
-Q=0.9
+N=164
+d=10
+m=4
+Q=0.5
 
 # specify the degree distribution of the graph. In it's current format the code can generate
 # four well known degree distribution found in biological networks - scalefree, geometric, poisson and regular distribution
@@ -27,8 +27,8 @@ modfunction = sg.regular_sequence
 # --------------------------
 net_list = []
 net_name = "Q_"+str(Q)+"_"
-net_num = 10
-path_save = "C:/Users/urkang/Network_data/191118_test_networks/"
+net_num = 50
+path_save = "C:/Users/urkang/Result_200301/"
 
 for i in range(net_num) :
     temp_graph = rmg.generate_modular_networks(N, degfunction, modfunction, Q, m, d)
@@ -37,5 +37,5 @@ for i in range(net_num) :
     
 for i in range(net_num) :
     temp_name = net_name + str(i+1) + ".csv"
-    temp_path = path_save + "Q_" + str(Q) + "/"
-    np.savetxt(temp_path+temp_name, net_list[i], delimiter=",")
+#    temp_path = path_save + "Q_" + str(Q) + "/"
+    np.savetxt(path_save+temp_name, net_list[i], delimiter=",")
