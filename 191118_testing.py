@@ -10,9 +10,12 @@ import numpy as np
 import random_modular_generator_variable_modules as rmg
 import sequence_generator as sg
 
+from tqdm import tqdm
+np.random.seed(0)
+
 # Enter the network size(N), average network degree (d), total modules in the network (m), and modularity (Q)
-N=164
-d=10
+N=200
+d=6
 m=4
 Q=0.5
 
@@ -28,11 +31,15 @@ modfunction = sg.regular_sequence
 net_list = []
 net_name = "Q_"+str(Q)+"_"
 net_num = 50
-path_save = "C:/Users/urkang/Result_200301/"
+path_save = "C:/Users/urkang/Desktop/test_directory/Net_simple_modular/"
 
-for i in range(net_num) :
+for i in tqdm(range(net_num)) :
     temp_graph = rmg.generate_modular_networks(N, degfunction, modfunction, Q, m, d)
     temp_matrix = nx.to_numpy_matrix(temp_graph)
+    temp_len = len(temp_matrix)
+    for j in range(temp_len) :
+        for k in range(temp_len) :
+            temp_matrix[j, k] *= np.random.uniform(low=-0.5, high=0.5) # 2D array indexing
     net_list.append(temp_matrix)
     
 for i in range(net_num) :
